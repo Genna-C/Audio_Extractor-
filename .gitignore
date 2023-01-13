@@ -1,0 +1,10 @@
+# Default ignored files
+/shelf/
+/*.xml
+_rels/
+ae_copies/
+docProps/
+ppt/
+/*.pptx
+/Audio_Extractor-.iml
+.idea/ 

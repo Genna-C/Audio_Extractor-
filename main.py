@@ -31,15 +31,19 @@ def welcome_message():
 def extract_audio(file):
     # Makes a copy and extracts audio via zip file
     # output a list of all audio AND the OG file name to extract_files
-    p = Path(file)
-    zip_p = p.rename(p.with_suffix('.zip'))
+        p = Path(file)
+        zip_p = p.rename(p.with_suffix('.zip'))
+        cwd = os.path.join(os.getcwd(), 'ae_copies')
+         #zip_p = os.path.join(zip_p,"ppt")
+        print(zip_p)
+        unzip_zip_ext(zip_p, cwd)
+        # Go in and send the list of all mp4 files
 
-    zip_p = Path.joinpath(zip_p,"ppt")
-    print(zip_p)
-    print(os.path.exists("{path_name}".format(path_name=zip_p)))
-    for file in glob.glob("{path_name}".format(path_name=zip_p)):
-        print("Found file of name {n}".format(n=file))
-    # Go in and send the list of all mp4 files
+
+def unzip_zip_ext(zip_path, output_path):
+    # Takes a zip path extension and returns a list of audio clips
+    with zipfile.ZipFile(zip_path, mode="r") as archive:
+        archive.extractall()
 
 
 def compile_audio(audio_clip_paths, output_path):
