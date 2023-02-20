@@ -6,7 +6,6 @@ from tqdm import tqdm
 import zipfile 
 
 def welcome_message():
-    # Use a breakpoint in the code line below to debug your script.
     print(f'Hi welcome to Audio_Extractor.py!')
     print(f'This is a quick program taking and compiling audio files from a .pptx format in the same directory')
     if input("Enter y to continue, anything else to exit\n") == 'y':
@@ -21,6 +20,7 @@ def welcome_message():
             shutil.copyfile('{soc}'.format(soc=file), '{dest}'.format(dest='ae_copies/' + file))
 
         # perform the extractions on all files
+        #NEXT STEP 
         for file in glob.glob('ae_copies/*.pptx'):
             extract_audio(file)
 
